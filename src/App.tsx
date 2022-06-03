@@ -1,8 +1,8 @@
 import { FC } from "react";
-import Header from "./components/Header";
+import MainPage from "./pages/MainPage";
 
 const App: FC = () => {
-  return <><Header /></>;
+  return <><MainPage /></>;
 };
 
 export default App;

@@ -1,6 +1,19 @@
 @import "../../mixins/container";
 
 .header {
-  background-color: darkviolet;
+  //background-color: darkviolet;
   @include container(15px);
+
+  &__links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 20vw;
+    max-width: 200px;
+
+    & > div:hover {
+      cursor: pointer;
+    }
+   }
 }

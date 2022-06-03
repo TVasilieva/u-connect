@@ -1,0 +1,24 @@
+@import "../../../../mixins/absolute-center";
+
+
+.arrow-container {
+    @include absolute-center(2);
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: 50px;
+    
+    &__left,
+    &__right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+    }
+  }
