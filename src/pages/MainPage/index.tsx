@@ -1,20 +1,17 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import Header from "../../components/Header";
-import Slider from "./Slider";
+import Sidebar from "./Sidebar";
+import AdsSection from "./AdsSection";
+import Content from "./Content";
 import "./style.scss";
 
-const images = [
-    "../../../assets/slider/sp1.png",
-    "../../../assets/slider/sp2.jpeg",
-    "../../../assets/slider/sp3.jpeg",
-];
-
 const MainPage: FC = () => {
+    const [isSidebarOpened, setSidebarOpened] = useState<boolean>(true)
     return (
         <>
-            <Header />
+            <Header onClick={() => setSidebarOpened(!isSidebarOpened)} />
             <div className="main-page">
-                <Slider images={images} />
+                {isSidebarOpened && <Sidebar />}<Content content="popular" /><AdsSection />
             </div>
         </>
     );

@@ -1,19 +1,88 @@
 @import "../../mixins/container";
 
 .header {
-  //background-color: darkviolet;
-  @include container(15px);
+  background-color: #feebef;
+  height: 60px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  display: flex;
+  grid-template-columns: 220px minmax(0, 640px) 320px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
 
-  &__links {
+  &__search {
+    grid-column: 2;
+  }
+
+  &__create {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    width: 20vw;
-    max-width: 200px;
+    background-color: #fff;
+    grid-column: 3;
+    font-size: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: inset 0 -1px 0 0 rgb(0 0 0 / 6%), 0 1px 2px 0 rgb(0 0 0 / 6%);
 
-    & > div:hover {
+    & >img {
+      margin-right: 10px;
+    }
+
+    &:hover {
       cursor: pointer;
     }
-   }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    font-weight: 600;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.right {
+  &__notifications {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 16px;
+  }
+
+  &__user {
+    padding-left: 16px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.notifications {
+  &__circle {
+    display: inline-block;
+    background-color: #e62e3b;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 12px;
+    min-width: 12px;
+    padding: 3px 5px;
+    position: absolute;
+    left: 50%;
+    top: -15%;
+    line-height: 1em;
+    will-change: transform;
+    visibility: visible;
+    transform: scale(1) translate3d(0, 0, 0);
+    opacity: 1;
+    transition: all 170ms ease, opacity 170ms ease, visibility 0ms 170ms;
+  }
 }
