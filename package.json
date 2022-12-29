@@ -26,7 +26,7 @@
     "build:storybook": "node ./src/scripts/storybook.js",
     "test:unit": "react-scripts test",
     "test:e2e": "node ./src/scripts/e2e.js",
-    "lint": "node ./src/scripts/lint.js",
+    "lint": "node ./src/scripts/eslint.js",
     "type:check": "node ./src/scripts/typecheck.js",
     "i18n:check": "node ./src/scripts/i18n-check.js"
   },
