@@ -10,6 +10,7 @@
     "@types/node": "^16.11.38",
     "@types/react": "^18.0.10",
     "@types/react-dom": "^18.0.5",
+    "jest": "^27.5.1",
     "mobx": "^6.6.1",
     "mobx-react-lite": "^3.4.0",
     "react": "^18.1.0",
@@ -22,8 +23,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build:storybook": "node ./src/scripts/storybook.js",
+    "test:unit": "react-scripts test",
+    "test:e2e": "node ./src/scripts/e2e.js",
+    "lint": "node ./src/scripts/lint.js",
+    "type:check": "node ./src/scripts/typecheck.js",
+    "i18n:check": "node ./src/scripts/i18n-check.js"
   },
   "eslintConfig": {
     "extends": [
