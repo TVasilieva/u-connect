@@ -1,8 +1,7 @@
-import { FC } from "react";
 import { IProps } from "./types";
 import "./style.scss";
 
-const Modal: FC<IProps> = () => {
+const Modal = ({}: IProps) => {
   return <div>index</div>;
 };
 

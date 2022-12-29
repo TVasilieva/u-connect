@@ -1,6 +1,4 @@
-import { FC } from "react";
-
-const Register: FC = () => {
+const Register = () => {
   return <div>index</div>;
 };
 

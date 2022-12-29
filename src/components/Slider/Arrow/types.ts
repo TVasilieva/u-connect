@@ -1,4 +1,4 @@
 export interface IProps {
-    showNextPicture: () => void;
-    showPreviousPicture: () => void;
-  }
+  showNextPicture: () => void;
+  showPreviousPicture: () => void;
+}

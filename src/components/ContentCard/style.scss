@@ -88,7 +88,7 @@
   &__right {
     width: 20%;
     min-width: 30px;
-    color: #2ea83a;
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
@@ -98,5 +98,17 @@
         cursor: pointer;
       }
     }
+  }
+
+  &__like {
+    color: #2ea83a;
+  }
+
+  &__neutral {
+    color: #3a3a3a;
+  }
+
+  &__dislike {
+    color: red;
   }
 }

@@ -1,6 +1,8 @@
+import { CategoryType } from "../../../../constants/categoryType";
+
 export interface IProps {
-  name: string;
+  name: CategoryType;
   Icon: string;
-  chosenCategory: string;
-  onClick: (category: string) => () => void;
+  chosenCategory: CategoryType;
+  onClick: (category: CategoryType) => () => void;
 }

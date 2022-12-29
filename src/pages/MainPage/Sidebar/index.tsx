@@ -1,50 +1,24 @@
-import { FC, useState } from "react";
+import { categories } from "../../../mocks/categories";
 import Category from "./Category";
 import "./style.scss";
+import category from "../../../store/category";
+import { CategoryType } from "../../../constants/categoryType";
+import { observer } from "mobx-react-lite";
 
-const categories = [
-  {
-    name: "popular",
-    Icon: "popular.png",
-  },
-  {
-    name: "latest",
-    Icon: "latest.png",
-  },
-  {
-    name: "companies",
-    Icon: "companies.png",
-  },
-  {
-    name: "vacancies",
-    Icon: "vacancies.png",
-  },
-  {
-    name: "events",
-    Icon: "events.png",
-  },
-  {
-    name: "subscriptions",
-    Icon: "subscriptions.png",
-  },
-];
-
-const Sidebar: FC = () => {
-  const [chosenCategory, setChosenCategory] = useState<string>("popular");
-
-  const handleChangeCategory = (category: string) => (): void => {
-    setChosenCategory(category);
+const Sidebar = observer(() => {
+  const handleChangeCategory = (value: CategoryType) => (): void => {
+    category.change(value);
   };
 
   return (
     <div className="sidebar">
       {!!categories.length ? (
-        categories.map((category) => (
+        categories.map((item) => (
           <Category
-            name={category.name}
-            Icon={category.Icon}
-            chosenCategory={chosenCategory}
-            key={category.name}
+            name={item.name}
+            Icon={item.Icon}
+            chosenCategory={category.value}
+            key={item.name}
             onClick={handleChangeCategory}
           />
         ))
@@ -53,6 +27,6 @@ const Sidebar: FC = () => {
       )}
     </div>
   );
-};
+});
 
 export default Sidebar;

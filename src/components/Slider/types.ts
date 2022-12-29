@@ -1,3 +1,3 @@
 export interface IProps {
-    images: string[]
+  images: string[];
 }

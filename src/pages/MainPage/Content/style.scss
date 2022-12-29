@@ -1,0 +1,9 @@
+@import "../../../mixins/content";
+
+.content {
+  &__wrapper {
+    @include content;
+    padding: 0 25px;
+    margin: 0 auto;
+  }
+}

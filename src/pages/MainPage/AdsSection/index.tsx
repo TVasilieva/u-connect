@@ -1,7 +1,6 @@
-import { FC } from "react";
 import "./style.scss";
 
-const AdsSection: FC = () => {
+const AdsSection = () => {
   return (
     <div className="ads__wrapper">
       <div className="ads">

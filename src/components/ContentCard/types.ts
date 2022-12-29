@@ -5,5 +5,5 @@ export interface IProps {
     title: string;
     text: string;
   };
-  image?: string
+  image?: string;
 }
