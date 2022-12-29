@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "CI=false && react-scripts build",
+    "build": "react-scripts build",
     "build:storybook": "node ./src/scripts/storybook.js",
     "test:unit": "react-scripts test",
     "test:e2e": "node ./src/scripts/e2e.js",
