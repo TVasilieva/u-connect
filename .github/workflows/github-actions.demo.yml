@@ -48,7 +48,7 @@ jobs:
       - name: Deploy
         run: |
           echo "Your branch was successfully deployed to the following address: " > output.txt
-          vercel --build-env AUTH0_BASE_URL=${VERCEL_URL} --token=${{ secrets.VERCEL_TOKEN }} >> output.txt
+          # vercel --build-env AUTH0_BASE_URL=${VERCEL_URL} --token=${{ secrets.VERCEL_TOKEN }} >> output.txt
       - name: comment PR
         uses: machine-learning-apps/pr-comment@master
         env:
