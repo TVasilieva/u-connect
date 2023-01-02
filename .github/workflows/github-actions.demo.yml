@@ -56,7 +56,7 @@ jobs:
           path: output.txt
   merge-to-master:
     name: merge to master
-    if: $CI_MERGE_REQUEST_APPROVED
+    if: '$CI_PIPELINE_SOURCE == "push" && $CI_BUILD_REF_NAME == "master"'
     runs-on: ubuntu-latest
     needs: dev-preview
     steps:
