@@ -9,15 +9,11 @@ jobs:
   dev-checks:
     name: run checks on dev
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x]
     steps:
       - uses: actions/checkout@v3
-      - name: Launching Node.js ${{matrix.node-version}}
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: ${{matrix.node-version}}
+          node-version: "18"
       - name: Install modules
         run: npm install
       - name: Build app
@@ -42,8 +38,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: npm
+          node-version: "18"
       - name: Install Vercel
         run: npm install -g vercel
       - name: Vercel login
