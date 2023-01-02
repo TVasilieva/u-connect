@@ -107,9 +107,5 @@ jobs:
       - name: Deploy
         run: |
           echo "Your branch was successfully deployed to the following address: " > output.txt
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          path: output.txt
 
 
