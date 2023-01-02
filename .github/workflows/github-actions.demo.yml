@@ -45,7 +45,9 @@ jobs:
           node-version: 18
           cache: npm
       - name: Install Vercel
-        run: npm install -g vercel@latest
+        run: npm install -g vercel
+      - name: Vercel login
+        run: vercel login
       - name: Pull environment
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
       - name: Build vercel app
