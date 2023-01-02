@@ -1,7 +1,6 @@
-import { IProps } from "./types";
 import "./style.scss";
 
-const Modal = ({}: IProps) => {
+const Modal = () => {
   return <div>index</div>;
 };
 
