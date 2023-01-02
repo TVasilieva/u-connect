@@ -3,6 +3,8 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: 
   push:
     branches: [master]
+  pull_request:
+    branches: [master]
   pull_request_review:
     types:
       - submitted
