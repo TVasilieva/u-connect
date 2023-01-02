@@ -1,6 +1,10 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [pull_request]
+on: 
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
 jobs:
   dev-checks:
     name: run checks on dev
@@ -44,13 +48,15 @@ jobs:
       - name: Deploy
         run: |
           echo "Your branch was successfully deployed to the following address: " > output.txt
+      - name: comment PR
+        uses: machine-learning-apps/pr-comment@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           path: output.txt
   merge-to-master:
     name: merge to master
-    if: $CI_MERGE_REQUEST_APPROVED
+    if: ${{ github.event.pull_request.merged }}
     runs-on: ubuntu-latest
     needs: dev-preview
     steps:
@@ -101,9 +107,5 @@ jobs:
       - name: Deploy
         run: |
           echo "Your branch was successfully deployed to the following address: " > output.txt
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          path: output.txt
 
 
