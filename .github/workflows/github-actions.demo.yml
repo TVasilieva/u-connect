@@ -6,7 +6,8 @@ on:
   pull_request:
     branches: [master]
 jobs:
-  CI-CD-workflow:
+  dev-checks:
+    name: run checks on dev
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -33,4 +34,30 @@ jobs:
         run: npm run type:check
       - name: Run translation check
         run: npm run i18n:check
+  dev-preview:
+    name: deploy to dev
+    runs-on: ubuntu-latest
+    needs: dev-checks
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
+      - name: Install Vercel
+        run: npm install -g vercel@latest
+      - name: Pull environment
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Build vercel app
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy
+        run: |
+          echo "Your branch was successfully deployed to the following address: " > output.txt
+          vercel --build-env AUTH0_BASE_URL=${VERCEL_URL} --token=${{ secrets.VERCEL_TOKEN }} >> output.txt
+      - name: comment PR
+        uses: machine-learning-apps/pr-comment@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          path: output.txt
 
