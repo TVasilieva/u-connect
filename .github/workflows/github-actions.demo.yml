@@ -5,9 +5,6 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
-  pull_request_review:
-    types:
-      - submitted
 jobs:
   dev-checks:
     name: run checks on dev
