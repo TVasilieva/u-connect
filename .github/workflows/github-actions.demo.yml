@@ -67,7 +67,7 @@ jobs:
     - uses: trstringer/manual-approval@v1
       with:
         secret: ${{ secrets.GITHUB_TOKEN }}
-        approvers: tonya-davedev
+        approvers: true
         minimum-approvals: 1
     - uses: "pascalgn/automerge-action@v0.15.5"
       with:
