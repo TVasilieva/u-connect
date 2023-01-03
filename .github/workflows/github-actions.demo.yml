@@ -63,12 +63,13 @@ jobs:
     needs: dev-preview
     environment: merge approve
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
     - uses: trstringer/manual-approval@v1
       with:
-        node-version: "18"
         minimum-approvals: 1
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: "18"
   run-checks-on-master:
     name: run checks on master
     runs-on: ubuntu-latest
