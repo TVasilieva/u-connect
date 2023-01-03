@@ -61,17 +61,12 @@ jobs:
     environment: merge approve
     steps:
     - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
+    - uses: devmasx/merge-branch@master
       with:
-        node-version: "18"
-    # - uses: trstringer/manual-approval@v1
-    #   with:
-    #     secret: ${{ secrets.GITHUB_TOKEN }}
-    #     approvers: tonya-davedev
-    #     minimum-approvals: 1
-    - uses: "pascalgn/automerge-action@v0.15.5"
-      with:
-        secret: ${{ secrets.GITHUB_TOKEN }}
+        type: now
+        from_branch: develop
+        target_branch: master
+        github_token: ${{ secrets.GITHUB_TOKEN }}
   run-checks-on-master:
     name: run checks on master
     runs-on: ubuntu-latest
