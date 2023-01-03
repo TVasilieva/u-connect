@@ -67,11 +67,11 @@ jobs:
     # - uses: trstringer/manual-approval@v1
     #   with:
     #     secret: ${{ secrets.GITHUB_TOKEN }}
-    #     approver: tonya-davedev
+    #     approvers: tonya-davedev
     #     minimum-approvals: 1
-    # - uses: "pascalgn/automerge-action@v0.15.5"
-    #   with:
-    #     secret: ${{ secrets.GITHUB_TOKEN }}
+    - uses: "pascalgn/automerge-action@v0.15.5"
+      with:
+        secret: ${{ secrets.GITHUB_TOKEN }}
   run-checks-on-master:
     name: run checks on master
     runs-on: ubuntu-latest
