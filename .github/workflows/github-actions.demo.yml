@@ -63,15 +63,18 @@ jobs:
     needs: dev-preview
     environment: merge approve
     steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: "18"
     - uses: trstringer/manual-approval@v1
       with:
         secret: ${{ secrets.GITHUB_TOKEN }}
         approvers: tonya-davedev
         minimum-approvals: 1
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
+    - uses: "pascalgn/automerge-action@v0.15.5"
       with:
-        node-version: "18"
+        secret: ${{ secrets.GITHUB_TOKEN }}
   run-checks-on-master:
     name: run checks on master
     runs-on: ubuntu-latest
