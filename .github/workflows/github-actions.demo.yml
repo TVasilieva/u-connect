@@ -58,7 +58,7 @@ jobs:
     name: merge to master
     runs-on: ubuntu-latest
     needs: dev-preview
-    environment: merge approve
+    environment: 'merge approve'
     steps:
     - uses: actions/checkout@v3
     - uses: devmasx/merge-branch@master
